@@ -114,7 +114,8 @@ class MemoryDNN:
         
         if k > 1:
             # generate the remaining K-1 binary ofﬂoading decisions with respect to equation (9)
-            idx_list = np.argsort(m)[:k-1]
+            m_abs = abs(m-0.5)
+            idx_list = np.argsort(m_abs)[:k-1]
             for i in range(k-1):
                 if m[idx_list[i]] >0.5:
                     # set the \hat{x}_{t,(k-1)} to 0
